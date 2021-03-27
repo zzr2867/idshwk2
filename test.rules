@@ -1,0 +1,2 @@
+alert tcp any any -> any 3399 (pcre:"login|Initial"; flowbits:set,tgt; flowbits:noalert; sid:1000080; )
+alert tcp any any -> any 3399 (msg:"bot founded"; pcre:"/([1-0]|\d[1-9]|1\d\d|2[0-4]\d|25[0-5])(\.()){3}\:[0-9]+/"; flowbits:isset,tgt; sid:1000090; )
